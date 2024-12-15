@@ -13,22 +13,26 @@ float inch_min = 20;
 
 void setup() {
   Serial.begin(9600);
+  //Configuring Pins
   pinMode(trigger, OUTPUT);
   pinMode(echo, INPUT);
   pinMode(PIEZO_PIN, OUTPUT);
 }
 
 void loop() {
+  //Creating ultrasonic pulse
   digitalWrite(trigger, LOW);
   delayMicroseconds(5);
   digitalWrite(trigger, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigger, LOW);
 
+  // Measure duration of echo and calculate distance
   distance = pulseIn(echo, HIGH, 38000); 
   distance = distance * 0.0135;         
   dist_inches = distance;
 
+  // Determine the tone based on distance thresholds
   if (dist_inches > 2 && dist_inches < inch_min) {
     tone(PIEZO_PIN, 1725);
     delay(50);
