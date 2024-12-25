@@ -1,3 +1,4 @@
+![VividSense Banner](/assets/VividSense.jpg "VividSense Banner")
 ## 📖 About
 
 This is the code for our intial SurroundScanner Arduino prototype. 
